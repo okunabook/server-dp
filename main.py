@@ -9,7 +9,8 @@ from fastapi import FastAPI, HTTPException, Cookie
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
-
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from database.mongodb import mongo_client
 from database.base_model import (
     Register,
@@ -54,7 +55,7 @@ checkpoints_collection = mongo_client(database="dpu_care", collection="checkpoin
 checkpoint_writes_collection = mongo_client(
     database="dpu_care", collection="checkpoint_writes"
 )
-
+app.mount("/assets", StaticFiles(directory="frontend/dist/assets"), name="assets")
 
 def loop_data(data: list):
     """function loop_data
@@ -93,6 +94,20 @@ def verify_google_token(access_token: str):
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f"Invalid token: {e}")
 
+
+@app.get("/")
+async def serve_root():
+    return FileResponse("frontend/dist/index.html")
+
+@app.get("/{full_path:path}")
+async def serve_react_app(full_path: str):
+    # ถ้า path มีไฟล์จริง (เช่น favicon.ico หรือไฟล์อื่นที่ build ไว้) ก็ให้เสิร์ฟไฟล์นั้น
+    file_path = os.path.join("frontend/dist", full_path)
+    if os.path.exists(file_path) and not os.path.isdir(file_path):
+        return FileResponse(file_path)
+
+    # ถ้าไม่เจอไฟล์ → fallback ไปที่ index.html ให้ React จัดการ
+    return FileResponse("frontend/dist/index.html")
 
 # API for Test Connect
 @app.get("/test-connect")
