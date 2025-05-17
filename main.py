@@ -119,7 +119,7 @@ async def google_login(google_token: GoogleToken):
             value=token,
             httponly=True,
             secure=True,
-            domain="localhost",
+            domain=DOMAIN,
             samesite="None",
             max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
             path="/"
@@ -129,7 +129,7 @@ async def google_login(google_token: GoogleToken):
             value=user_info.get("_id"),
             httponly=True,
             secure=True,
-            domain="localhost",
+            domain=DOMAIN,
             samesite="None",
             max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
             path="/"
@@ -139,7 +139,7 @@ async def google_login(google_token: GoogleToken):
             value=user_info.get("role"),
             httponly=True,
             secure=True,
-            domain="localhost",
+            domain=DOMAIN,
             samesite="None",
             max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
             path="/"
@@ -160,7 +160,7 @@ async def google_login(google_token: GoogleToken):
         value=token,
         httponly=True,
         secure=True,
-        domain="localhost",
+        domain=DOMAIN,
         samesite="None",
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         path="/"
@@ -223,7 +223,7 @@ async def register(form_data: Register, verify_tk: str, verification_code: str):
                 value=token,
                 httponly=True,
                 secure=True,
-                domain="localhost",
+                domain=DOMAIN,
                 samesite="None",
                 max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
                 path="/"
@@ -233,7 +233,7 @@ async def register(form_data: Register, verify_tk: str, verification_code: str):
                 value=str(user_info.inserted_id),
                 httponly=True,
                 secure=True,
-                domain="localhost",
+                domain=DOMAIN,
                 samesite="None",
                 max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
                 path="/"
@@ -243,7 +243,7 @@ async def register(form_data: Register, verify_tk: str, verification_code: str):
                 value="user",
                 httponly=True,
                 secure=True,
-                domain="localhost",
+                domain=DOMAIN,
                 samesite="None",
                 max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
                 path="/"
