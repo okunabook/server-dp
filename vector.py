@@ -62,19 +62,19 @@ def vectors(directory: str, collection_name: str, data: list = [], new: bool = F
 
 
 
-# Load example document
-with open("C:\\Users\\hookj\\Desktop\\17-5-68 nuV\\server\\RAG2.txt",encoding="utf-8") as f:
-    state_of_the_union = f.read()
+# # Load example document
+# with open("C:\\Users\\hookj\\Desktop\\17-5-68 nuV\\server\\RAG2.txt",encoding="utf-8") as f:
+#     state_of_the_union = f.read()
     
-a = text_splitter(
-    data=[state_of_the_union],
-    is_separator_regex=True
-)
+# a = text_splitter(
+#     data=[state_of_the_union],
+#     is_separator_regex=True
+# )
 
-vectors(
-    directory="./vectorDB",
-    collection_name="vector",
-    data=a,
-    new=True
+# vectors(
+#     directory="./vectorDB",
+#     collection_name="vector",
+#     data=a,
+#     new=True
     
-)
+# )
