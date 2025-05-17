@@ -39,7 +39,7 @@ def main(model_name: str, system_template: str, text: str, thread_id: str, tempe
     llm = ChatOpenAI(model=model_name, temperature=temperature)
 
     config = {"configurable": {"thread_id": thread_id}}
-    vector_store = vectors(directory="./vectorDB", collection_name="vector")
+    vector_store = vectors(directory="/opt/render/project/src/vectorDB", collection_name="vector")
 
     class State(TypedDict):
         messages: Annotated[Sequence[BaseMessage], add_messages]
