@@ -120,7 +120,7 @@ async def google_login(google_token: GoogleToken):
             httponly=True,
             secure=True,
             domain="localhost",
-            samesite="lax",
+            samesite="None",
             max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
             path="/"
         )
@@ -130,7 +130,7 @@ async def google_login(google_token: GoogleToken):
             httponly=True,
             secure=True,
             domain="localhost",
-            samesite="lax",
+            samesite="None",
             max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
             path="/"
         )
@@ -140,7 +140,7 @@ async def google_login(google_token: GoogleToken):
             httponly=True,
             secure=True,
             domain="localhost",
-            samesite="lax",
+            samesite="None",
             max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
             path="/"
         )
@@ -161,7 +161,7 @@ async def google_login(google_token: GoogleToken):
         httponly=True,
         secure=True,
         domain="localhost",
-        samesite="lax",
+        samesite="None",
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         path="/"
     )
@@ -224,7 +224,7 @@ async def register(form_data: Register, verify_tk: str, verification_code: str):
                 httponly=True,
                 secure=True,
                 domain="localhost",
-                samesite="lax",
+                samesite="None",
                 max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
                 path="/"
             )
@@ -234,7 +234,7 @@ async def register(form_data: Register, verify_tk: str, verification_code: str):
                 httponly=True,
                 secure=True,
                 domain="localhost",
-                samesite="lax",
+                samesite="None",
                 max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
                 path="/"
             )
@@ -244,7 +244,7 @@ async def register(form_data: Register, verify_tk: str, verification_code: str):
                 httponly=True,
                 secure=True,
                 domain="localhost",
-                samesite="lax",
+                samesite="None",
                 max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
                 path="/"
             )
@@ -277,7 +277,7 @@ async def login(form_data: Login):
         httponly=True,
         secure=True,
         domain=DOMAIN,
-        samesite="lax",
+        samesite="None",
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         path="/"
     )
@@ -287,7 +287,7 @@ async def login(form_data: Login):
         httponly=True,
         secure=True,
         domain=DOMAIN,
-        samesite="lax",
+        samesite="None",
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         path="/"
     )
@@ -297,7 +297,7 @@ async def login(form_data: Login):
         httponly=True,
         secure=True,
         domain=DOMAIN,
-        samesite="lax",
+        samesite="None",
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         path="/"
     )
@@ -359,7 +359,7 @@ async def create_section(user_id: str, access_token: str = Cookie(None)):
         httponly=True,
         secure=True,
         domain=DOMAIN,
-        samesite="lax",
+        samesite="None",
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         path="/"
     )
