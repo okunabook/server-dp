@@ -91,7 +91,9 @@ def verify_google_token(access_token: str):
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f"Invalid token: {e}")
 
-
+@app.get("/test-connect")
+async def test_connect():
+    return { "msg": "Connect successful" }
 
 
 # API for Protected
