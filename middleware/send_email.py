@@ -5,7 +5,6 @@ from email.message import EmailMessage
 from dotenv import load_dotenv
 load_dotenv()
 
-msg = EmailMessage()
 
 SMTP_SERVER = os.getenv("SMTP_SERVER")
 SMTP_PORT = os.getenv("SMTP_PORT")
@@ -20,6 +19,7 @@ def _send_email(title: str, from_: str, to_: str, content: str):
         content: str (require)"""
     
     try: 
+        msg = EmailMessage()
         msg["Subject"] = title
         msg["From"] = from_
         msg["To"] = to_
