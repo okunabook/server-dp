@@ -33,6 +33,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 1440
 VERIFY_TOKEN_EXPIRE_MINUTES = 10
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_URL = os.getenv("CLIENT_URL")
+MODEL_NAME = os.getenv("MODEL_NAME")
 
 
 app = FastAPI(description="DPUCARE web chatbot")
@@ -452,7 +453,7 @@ async def create_history(
     res_info = loop_data(chatbot_info)
 
     llm = main(
-        model_name="gpt-4o",
+        model_name=MODEL_NAME,
         system_template=res_info[0]["prompt_template"],
         text=question.human,
         thread_id=section_id,
@@ -511,7 +512,7 @@ async def chatbot_secondery(
     res_info = loop_data(data=chatbot_info)
 
     llm = main(
-        model_name="gpt-4o",
+        model_name=MODEL_NAME,
         system_template=res_info[0]["prompt_template_just_venting"],
         text=question.human,
         thread_id=section_id,
@@ -660,7 +661,7 @@ async def chatbot_admin(
     res_info = loop_data(data=chatbot_info)
 
     llm = main(
-        model_name="gpt-4o",
+        model_name=MODEL_NAME,
         system_template=res_info[0][form_data.mode],
         text=form_data.human,
         thread_id=section_id,
