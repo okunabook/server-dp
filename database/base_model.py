@@ -32,14 +32,18 @@ class Report(BaseModel):
     description: str
     status: int
 
-class PromptUpdate(BaseModel):
-    prompt_template: str
+class CreateSection(BaseModel):
+    name: str
 
-class PromptUpdateJV(BaseModel):
-    prompt_template_just_venting: str
+class CreateTemplate(BaseModel):
+    name: str
+    template: str
 
-class PromptUpdateTS(BaseModel):
-    prompt_template_test: str
+class UpdateTemplate(BaseModel):
+    template: str
 
-class PromptUpdateJVTS(BaseModel):
-    prompt_template_just_venting_test: str
+class SelectMainTemplate(BaseModel):
+    select_main: str
+
+class SelectSeconderyTemplate(BaseModel):
+    select_secondery: str
